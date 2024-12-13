@@ -10,5 +10,6 @@ func handleRoot() http.Handler {
 			w.WriteHeader(http.StatusOK)
 			w.Write([]byte("Hello from the root handler!"))
 			return
-		})
+		},
+	)
 }
