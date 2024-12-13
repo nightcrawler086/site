@@ -16,11 +16,13 @@ func NewServer() http.Handler {
 	return mux
 }
 
-func run(ctx *context.Context, w, io.Writer, args []string) error {
-
-}
+//func run(ctx *context.Context, w, io.Writer, args []string) error {
+//
+//}
 
 func main() {
+
+	ctx := context.Background()
 
 	srv := NewServer()
 	httpServer := &http.Server{
@@ -30,7 +32,7 @@ func main() {
 	go func() {
 		log.Printf("listening on %s\n", httpServer.Addr)
 		if err := httpServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			fmt.Fprintf(os.Stderr, "error listening and serving: %s\n", err)
+			fmt.Println("failed to listen and serve %s\n", err.Error())
 		}
 	}()
 	var wg sync.WaitGroup
