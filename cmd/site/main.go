@@ -32,7 +32,7 @@ func main() {
 	go func() {
 		log.Printf("listening on %s\n", httpServer.Addr)
 		if err := httpServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			fmt.Println("failed to listen and serve %s\n", err.Error())
+			fmt.Printf("failed to listen and serve %s\n", err.Error())
 		}
 	}()
 	var wg sync.WaitGroup
